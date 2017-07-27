@@ -1,5 +1,7 @@
 #!/bin/bash
-DB_NAME=""SYNTAX_HELP="FALSE"program_name=$(basename $0)
+DB_NAME=""
+SYNTAX_HELP="FALSE"
+program_name=$(basename $0)
 while [ $# -ge 1 ]dokey="$1"# echo $key $1case $key in    -wb|--workbrain)    schemas[0]="WORKBRAIN"    ;;    -cg|--cognos)    schemas[1]="COGNOS"    ;;    -ar|--archive)    schemas[2]="ARCHIVE"    ;;    -tg|--target) echo "--target" shift    DB_NAME="$1"    ;;    -h|--help)    SYNTAX_HELP="TRUE"    shift # past argument    ;;    *)     # unknown option  echo "$1 is an unkown option"    ;;esacshift # past argument or valuedone
 if [ ${#schemas[@]} == 0 ];thenecho "HERE $len and $DB_NAME"   SYNTAX_HELP="TRUE"fi
 if [ "$DB_NAME" == "" ];then   SYNTAX_HELP="TRUE"fi
